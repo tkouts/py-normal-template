@@ -58,5 +58,4 @@ def extract_data(mt):
         data[match.group(2)] = match.group(3)
         return ''
 
-    _block_re.sub(mt, _handler)
-    return data
+    return _block_re.sub(_handler, mt), data

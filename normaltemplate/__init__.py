@@ -29,7 +29,8 @@ except ImportError:
     # python 3
     from urllib.parse import quote
 
-__all__ = ['compile', 'filters']
+__all__ = ['__version__', 'compile', 'filters']
+__version__ = '0.1'
 
 _token_re = re.compile('(\{.+?\}\}?)')
 _command_re = re.compile('^\{[\:\/\=]')
@@ -149,7 +150,7 @@ def compile(src, options={}, template_name='normal-template'):
                     stack.append('a%d[i%d]' % (depth, depth))
                     continue
 
-                elif cmd in('e', 'else'):
+                elif cmd in ('e', 'else'):
                     tag = nesting[-1]
                     if tag:
                         if tag == 'reduce':
